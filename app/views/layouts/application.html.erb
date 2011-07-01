@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title><%= title %></title>
+    <%= csrf_meta_tag %>
+	<%= render 'layouts/stylesheets' %>
+	<%= render 'layouts/javascripts' %>
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-22984878-1']);
+	  _gaq.push(['_setClientInfo', false]);
+	  _gaq.push(['_setAllowHash', false]);
+	  _gaq.push(['_setDetectFlash', false]);
+	  _gaq.push(['_setDetectTitle', false]);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>	
+  </head>
+  <body>
+    <div id="bodyContainer">
+	  <div id="headerContainer">
+	    <%= render 'layouts/header'%>
+	  </div>
+ 	  <div class="titleHeader"><span id="windowtitle" style="padding-left:10px">Menu</span></div>
+      <div class="contentContainer">	
+        <%= yield %>
+      </div>
+	  <%= render 'layouts/footer'%>
+
+	  <div id="loginRegisterContainer" style="display:none">
+		<form id="loginContainer">
+		  <div id="lc_signin_label">Sign In:</div>
+		  <label for="login_email">email:</label>
+	      <input type="text" name="login_email" class="required email" id="login_email"/>
+		  <div id="resetPasswordContainer" style="display:none">	
+			<label for="reset_challenge">challenge:</label>
+			<select id="reset_challenge">
+			  <option>Mother's maiden</option>
+			  <option>Elementary School</option>
+			  <option>College</option>
+			  <option>Birth Month</option>
+			  <option>Favorite Color</option>
+			</select>
+			<label for="reset_answer" class="required">answer:</label>
+			<input type="text" id="reset_answer" name="reset_answer" class="required"/>
+		  </div>	
+	      <label id="login_password_label" for="login_password">password:</label>
+	      <input type="password" class="required" name="login_password" id="login_password"/>
+		  <a id="forgotPassword">forgot password</a>
+		  <div id="loginButton" class="button">Login</div>
+	 	</form>	
+		<form id="registerContainer">
+		  <div id="rc_signup_label">Sign Up:</div>
+		  <input type="hidden" id="editmode" value="false"/>
+		  <label for="email">email:</label>
+		  <input type="text" name="email" id="email" class="required email"/>
+		  <label for="password">password:</label>
+		  <input type="password" name="password" id="password" class="required"/>
+		  <label id="confirm_password_label" for="confirm_password">password confirm:</label>
+		  <input type="password" id="confirm_password" name="confirm_password" class="required"/>
+		  <label for="first_name">first name:</label>
+		  <input type="text" id="first_name" name="first_name" class="required"/>
+		  <label for="last_name">last name:</label>
+		  <input type="text" id="last_name" name="last_name" class="required"/>
+		  <label for="address_1" >billing address 1:</label>
+		  <input type="text" class="required" name="address_1" id="address_1"/>
+		  <label for="address_2">billing address 2:</label>
+		  <input type="text" id="address_2"/>
+		  <label for="city">city:</label>
+		  <input type="text" id="city" name="city" class="required"/>	
+		  <label for="state">state:</label>
+		  <select id="state" name="state" class="required">
+		    <option>Alabama</option>
+		    <option>Alaska</option>
+		    <option>American Samoa</option>
+		    <option>Arizona</option>
+		    <option>Arkansas</option>
+		    <option>California</option>
+		    <option>Colorado</option>
+		    <option>Connecticut</option>
+		    <option>Delaware</option>
+		    <option>District of Columbia</option>
+		    <option>Florida</option>
+		    <option>Georgia</option>
+		    <option>Guam</option>
+		    <option>Hawaii</option>
+		    <option>Idaho</option>
+		    <option>Illinois</option>
+		    <option>Indiana</option>
+		    <option>Iowa</option>
+		    <option>Kansas</option>
+		    <option>Kentucky</option>
+		    <option>Louisiana</option>
+		    <option>Maine</option>
+		    <option>Maryland</option>
+		    <option>Massachusetts</option>
+		    <option>Michigan</option>
+		    <option>Minnesota</option>
+		    <option>Mississippi</option>
+		    <option>Missouri</option>
+		    <option>Montana</option>
+		    <option>Nebraska</option>
+		    <option>Nevada</option>
+		    <option>New Hampshire</option>
+		    <option>New Jersey</option>
+		    <option>New Mexico</option>
+		    <option>New York</option>
+		    <option>North Carolina</option>
+		    <option>North Dakota</option>
+		    <option>Ohio</option>
+		    <option>Oklahoma</option>
+		    <option>Oregon</option>
+		    <option>Pennsylvania</option>
+		    <option>Puerto Rico</option>
+		    <option>Rhode Island</option>
+		    <option>South Carolina</option>
+		    <option>South Dakota</option>
+		    <option>Tennessee</option>
+		    <option>Texas</option>
+		    <option>Utah</option>
+		    <option>Vermont</option>
+		    <option>Virginia</option>
+		    <option>Virgin Islands</option>
+		    <option>Washington</option>
+		    <option>West Virginia</option>
+		    <option>Wisconsin</option>
+		    <option>Wyoming</option>
+		  </select>
+		  <label for="postal">postal code:</label>
+		  <input type="text" id="postal" name="postal" class="required number"/>
+		  <label for="phone">phone number:</label>
+		  <input type="text" id="phone" name="phone" class="required phoneUS"/>
+		  <label for="challenge">challenge question:</label>
+		  <select id="challenge">
+		    <option>Mother's maiden</option>
+		    <option>Elementary School</option>
+		    <option>College</option>
+		    <option>Birth Month</option>
+		    <option>Favorite Color</option>
+		  </select>
+		  <label for="answer">answer:</label>
+		  <input type="text" name="answer" id="answer" class="required"/>
+		  <div id="creditcard_label">Credit Card:</div>
+		  <div id="creditcard_delete"><a id="deletecard">delete card</a></div>
+		  <label for="card_type">card type:</label>
+		  <select id="card_type">
+		    <option>Visa</option>
+		    <option>Mastercard</option>
+		    <option>Discover</option>
+		    <option>American Express</option>	
+		  </select>
+		  <label for="card_number">card number:</label>
+		  <input type="text" name="card_number" id="card_number" class="required creditcard"/>
+		  <label for="expmonth">expiration:</label>
+		  <select id="expmonth">
+		    <option value="1">January</option>
+		    <option value="2">February</option>
+		    <option value="3">March</option>
+		    <option value="4">April</option>
+		    <option value="5">May</option>
+		    <option value="6">June</option>
+		    <option value="7">July</option>
+		    <option value="8">August</option>
+		    <option value="9">September</option>
+		    <option value="10">October</option>
+		    <option value="11">November</option>
+		    <option value="12">December</option>
+		  </select>
+		  <select id="expyear">
+		  </select>
+		  <label for="cvv">security number:</label>
+		  <input type="text" name="cvv" id="cvv" class="required"/>
+		  <div id="registerButton" class="button">Register</div>
+		  <div id="cancelButton" class="button">Cancel</div>
+		</form>
+	  </div>
+    </div>
+    <div id="po_container" style="display:none">
+	  <%= render 'shared/prev_orders'%>
+	</div>
+  </body>
+</html>
+

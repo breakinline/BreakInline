@@ -1,0 +1,59 @@
+<div id="orderInfo">
+  <div id="cook_cust_name"><span class="cook_label">Customer: </span><%=@order.user.first_name%> <%=@order.user.last_name%></div>
+  <div id="cook_placed_at"><span class="cook_label">Placed At: </span><%=@order.placed_at.strftime("%B %d %Y %I:%M %p")%></div>
+  <div id="cook_pickup_at"><span class="cook_label">Pickup Time: </span><%=@order.pickup_at.strftime("%B %d %Y %I:%M %p")%></div>
+  <table id="cook_items">
+	<tr>
+	  <th>Qty</th>
+	  <th style="width:200px;">Item</th>
+	  <th>Price</th>
+	  <th style="width:300px">Comment</th>
+	</tr>
+	<% orderItemGroup = @order.order_items_by_item_for %>
+	<% orderItemGroup.each_key do |group| %>      		<!-- for each group -->
+	<% unless group.nil? %>
+	<tr><td colspan="4"><%=group%></tr>	
+	<% end %>
+	<% orderItemGroup[group].each do |orderItem| %>		<!-- for each orderItem -->
+	<% if orderItem.item_type == OrderItem::MENU_ITEM %>
+  	<tr>
+	  <td><%=orderItem.quantity%></td>
+	  <td><%=orderItem.menu_item.name%></td>
+	  <td align="right"><%=number_to_currency(orderItem.price)%></td>
+	  <td><%=orderItem.comment%></td>
+	</tr>
+	<% orderItem.choice_options(@order.order_items).each do |choiceOption| %>	<!-- for each choiceOption -->
+	<tr>
+	  <td><%=orderItem.quantity%></td>
+	  <td style="font-style:italic;"><%=choiceOption.name%></td>
+	  <td align="right"><%=number_to_currency(choiceOption.price)%></td>
+	  <td></td>
+	</tr>
+	<% end %>																	<!-- end each choiceOption -->
+	<% end %>  																	<!-- end if MENU_ITEM -->
+	<% end %>   																<!-- end each orderItem -->
+	<% end %>																	<!-- end each group -->
+	<tr>
+		<td colspan="2" align="right" style="padding-right:10px">Subtotal:</td>
+		<td align="right"><%=number_to_currency(@order.sub_total)%></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right" style="padding-right:10px">Tax:</td>
+		<td align="right"><%=number_to_currency(@order.tax_total)%></td>		
+		<td></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right" style="padding-right:10px">Total:</td>
+		<td align="right"><%=number_to_currency(@order.total)%></td>		
+		<td></td>		
+	</tr>
+  </table>
+  <div id="cook_">
+  <a href="/cookview/<%=@order.location_id%>"><div id="backButton" class="button">Back</div></a>
+  <% if @order.status == Order::PREPARE %>
+  <a href="/cookview/complete/<%=@order.id%>"><div id="completeButton" class="button">Complete</div></a>
+  <% else %>
+  <a href="/cookview/pickup/<%=@order.id%>"><div id="completeButton" class="button">Pickup</div></a>
+  <% end %>
+</div>

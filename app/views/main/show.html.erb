@@ -1,0 +1,84 @@
+<div id="menuContainer">
+  <% categoryFirstPass = true %>
+  <% @categories.each do |category| %>
+  <% if categoryFirstPass %>
+    <div class="menuItemContainer" style="clear:left;">
+	<% categoryFirstPass = false %>
+  <% else %>
+    <div class="menuItemContainer">
+		<% categoryFirstPass = true %>
+  <% end %>
+	<span class="categoryName"><%= category.name %></span>
+	<% category.menu_items.each do |menuItem| %>
+	  <div class="menuitemPriceContainer">
+		<span class="categoryName">&gt;</span>&nbsp;<%= menuItem.name %>
+		<span class="menuitemPrice"><%= number_to_currency(menuItem.price) %></span>	
+	    <div class="menuitemPopup">
+		  <span class="menuitemPopupName"><%= menuItem.name %></span>
+		  <span class="menuitemPopupPrice"><%= menuItem.price %></span>				
+		  <span class="menuitemPopupDesc"><%= menuItem.description %></span>
+		  <input type="hidden" value="<%=menuItem.id%>" class="menuItemAddId"/>
+		  <input type="hidden" value="<%=menuItem.name%>" class="menuItemName"/>
+		  <label for="menuItemFor">Item for:</label>
+		  <input type="text" class="menuItemFor" id="menuItemFor" value=""/>		
+		  <div class="addButton button">Add</div>
+		  <div class="menuitemPopupContainer">
+			<span class="menuitemPopupContainerDescription"><%= menuItem.description %></span>
+			<span class="menuitemPopupContainerPrice"><%= number_to_currency(menuItem.price) %></span>
+			<div class="menuitemPopupContainerChoiceOptions">
+			  <% firstPass = true %>
+			  <% menuItem.choice_option_groups.each do |choiceOptionGroup|%>
+				<div class="menuitemPopupContainerChoiceOptionContainer">
+				  <div class="menuitemPopupContainerChoiceOptionTitle"><%= choiceOptionGroup.name %> 
+					(choose <%=choiceOptionGroup.max_quantity%>)
+					<div class="menuitemPopupContainerChoiceOptionItems"></div>
+				  </div>				  
+				  <input type="hidden" class="max_quantity" value="<%=choiceOptionGroup.max_quantity%>"/>
+				  <% if firstPass %>
+				  <div class="menuitemPopupContainerChoiceOptionList">							    
+				  <% else %>
+				  <div class="menuitemPopupContainerChoiceOptionList" style="display:none;">			
+				  <% end %>
+				  <% firstPass = false %>				
+				    <% clearLeft = true %>
+				    <% choiceOptionGroup.choice_options.each do |choiceOption|%>
+					  <% if clearLeft 
+					     style = "clear:left;" 
+					     clearLeft = false
+					   else
+						  style = ""
+						  clearLeft = true
+					   end %>				
+				      <div class="menuitemPopupContainerChoiceOption" style="<%=style%>" >
+				      <% if choiceOptionGroup.item_type == OrderItem::CHOICE_ITEM %>
+				        <input type="radio" name="<%=choiceOptionGroup.name%>" class="choice" value="<%=choiceOption.id%>"/> 
+						<span class="choiceOptionName"> <%=choiceOption.name%></span>
+				      <% else %>
+				        <input type="checkbox" class="option" value="<%=choiceOption.id%>"/> 
+						<span class="choiceOptionName"><%=choiceOption.name%></span>	
+					  <% end %>
+					</div>
+				    <% end %>
+				  </div>
+				</div> <!-- end menuitemPopupContainerChoiceOptionContainer -->
+			  <% end %>
+			</div>  <!-- end menuitemPopupContainerChoiceOptions -->	
+			<div class="menuitemPopupComment">
+			  <textarea class="comment" rows="5" cols="61">Type your comment here.</textarea>
+			</div>
+			<div class="menuitemPopupContainerButtons">
+				<div class="menuitemPopupContainerAdd button">Save</div>
+				<div class="menuitemPopupContainerClose button">Close</div>
+			</div>
+		  </div>
+	    </div>		
+	  </div>
+	<% end %>
+  </div>
+  <% end %>
+</div>
+<div id="os_container">
+  <%= render 'shared/order_summary'%>
+</div>
+
+

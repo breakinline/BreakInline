@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  location_id: 1
+  day: MyString
+  from: MyString
+  to: MyString
+
+two:
+  location_id: 1
+  day: MyString
+  from: MyString
+  to: MyString

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  menu_item_id: 1
+  name: MyString
+  groupKey: MyString
+  price: 9.99
+  position: 1
+
+two:
+  menu_item_id: 1
+  name: MyString
+  groupKey: MyString
+  price: 9.99
+  position: 1

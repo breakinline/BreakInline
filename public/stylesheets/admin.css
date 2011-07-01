@@ -1,0 +1,39 @@
+body {
+	margin: auto;
+	width: 1024px;
+	color: #545454;
+}
+
+#tree-div {
+	float:left;
+	clear:left;
+}
+
+#form-div {
+	float:left;
+}
+
+.x-grid-cell .company {
+	background-image: url('/images/company.png');
+}
+
+.x-grid-cell .location {
+	background-image: url('/images/location.png');
+}
+
+.x-grid-cell .category {
+	background-image: url('/images/category.png');
+}
+
+.x-grid-cell .menu_item {
+	background-image: url('/images/menu_item.png');
+}
+
+.x-grid-cell .user {
+	background-image: url('/images/user.png');
+}
+
+#email input {
+	text-transform: uppercase;
+}
+

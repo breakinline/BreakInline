@@ -1,0 +1,19 @@
+<div id="tree-div"></div>
+<div id="form-div"></div>
+
+<script type="text/javascript">
+var store = Ext.create('Ext.data.TreeStore', {
+	autoLoad:true,			
+	proxy: {
+		type: 'ajax',
+		url: '/admin/get_node'
+	},
+	root: {
+		text: '<%=@company.name%>',
+		id: 'src/<%=@company.id%>',
+		iconCls: 'company',
+		expanded:true
+	},
+	folderSort:false
+});
+</script>

@@ -1,0 +1,86 @@
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<div id="companyContainer">
+  <p>Which Location would you like to order from?</p>
+
+  <label for="coPostalCode">Search Near Postal Code: </label>
+	<input type="text" id="coPostalCode"/>  
+	<div id="coFindLocation" class="button">
+		<span class="button-text">Find Location</span>
+	</div> 
+  <div id="coLocations" style="display:none;">
+	<%= render 'shared/locations'%>
+  </div>
+  <div id="map_dialog">
+    <div id="map_canvas"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var mapDialog;
+  jQuery(document).ready(function() {
+
+    jQuery('#windowtitle').html('Choose Location');
+
+    jQuery('#coFindLocation').click(function() {
+	  jQuery('#coLocations').show();
+	});
+	
+	var dirService = new google.maps.DirectionsService();
+	
+    if(navigator.geolocation) {
+      browserSupportFlag = true;
+      navigator.geolocation.getCurrentPosition(
+	    function(position) {
+          initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+		  jQuery('.locationInfo').each(function(idx,obj) {
+		    var destString = jQuery(obj).children('.locationAddress').html() + ' ' + jQuery(obj).children('.locationCityStateZip').html();
+			var mileage = jQuery(obj).find('.locationMileage');
+		    dirService.route({
+			  'destination' : destString,
+			  'origin' : initialLocation,
+			  'travelMode' : google.maps.DirectionsTravelMode.DRIVING} , function(result, status) {
+				jQuery(mileage).html(result.routes[0].legs[0].distance.text);
+			});
+		  });
+        }, 
+        function() {
+          
+        }
+      );
+	}
+	jQuery('.seeMap').click(function() {
+	  var address = jQuery(this).parent().siblings('.locationAddress').html() + ' ' +
+		jQuery(this).parent().siblings('.locationCityStateZip').html();
+	  var locationName = jQuery(this).parent().siblings('.locationTitle').find('.locationName').html();
+	  geocoder = new google.maps.Geocoder();
+	  geocoder.geocode({'address': address}, function(results, status) {
+		  var latlng = results[0].geometry.location
+		  var myOptions = {
+			  zoom: 15,
+			  center: latlng,
+			  mapTypeId: google.maps.MapTypeId.ROADMAP
+		  };
+		  var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);		
+		  map.setCenter(results[0].geometry.location);
+		  
+		  var marker = new google.maps.Marker({
+			position: results[0].geometry.location,
+			map: map,
+			title: locationName });
+
+		  mapDialog = jQuery('#map_dialog').dialog({
+			modal:true,
+			width: '530px',
+			title: 'Map',
+			resizable:false,
+			autoOpen:false,
+			close: function(ev, ui) {
+				jQuery('#map_dialog').dialog('destroy');
+				jQuery('#map_dialog').appendTo('#coContainer');
+			}
+		  });
+		  mapDialog.dialog('open');
+	  });
+	});
+  });
+</script>

@@ -1,0 +1,21 @@
+  <a href="/locations/<%=session[:locationId].to_s%>">
+	<img src="/images/<%=session[:context]%>/logo.png" border="0"/>
+  </a>
+  <ul id="headerMyAccount">
+	  <% if session[:profileId].nil? %>
+      <li><a id="signIn">Sign in</a></li>
+      <% else %>
+      <li>Welcome Back <%=@profile.first_name%></li>
+      <li><a id="logout">logout</a></li>
+	  <li><a id="myaccountedit">my info</a></li>
+	  <li><a id="loadprevious">previous orders</a></li>
+      <% end %>
+      <li><a id="help">help</a></li>
+  </ul>
+  <ul id="mainMenu">
+	<li>About Us</li>
+	<li>Locations</li>
+	<li>Events</li>
+  </ul>
+
+

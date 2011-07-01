@@ -1,0 +1,44 @@
+<div id="cook_container">
+  <div id="orders_table">
+	<div id="orders_table_title">
+	  <div id="prepareStatus" class="button selected">Prepare</div>
+	  <div id="completeStatus"class="button">Complete</div>
+	</div>
+	<div id="orderContainer">
+	<%= render 'shared/cook_orders'%>
+	</div>
+  </div>
+</div>
+<div id="loginContainer" style="display:none;">
+  <label for="email">Email</label>
+  <input type="text" id="email" name="email" />
+  <label for="password">Password</label>
+  <input type="password" name="password" id="password"/>
+  <div id="locationContainer" style="display:none;">
+	<label for="location">Location</label>
+	<select id="location" name="location">
+	  
+	</select>
+  </div>
+  <div id="loginButton" class="button">Login</div>
+</div>
+<div id="orderDetailContainer">
+</div>	
+
+<script type="text/javascript">
+  <% if session["profileId"].nil? %>
+  jQuery(document).ready(function() {
+    loginDialog = jQuery('#loginContainer').dialog({
+	  modal:true,
+	  width: '400px',
+	  title: 'Login',
+	  resizable:false,
+	  autoOpen:false,
+	  close: function(ev, ui) {
+		jQuery(this).dialog('destroy').remove();
+	  }
+    });
+    loginDialog.dialog('open');
+  });
+  <% end %>
+</script>

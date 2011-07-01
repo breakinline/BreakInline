@@ -1,0 +1,556 @@
+
+body {
+  background: #fff;
+  font-family: Arial;
+  margin:auto;
+  width:1024px;
+  color:#545454;
+}
+a {
+	cursor:pointer;
+}
+label.error {
+	float:none;
+	color: red;
+	padding-left:.5em;
+	vertical-align:top;
+}
+div.error {
+	float:left;
+	color:red;
+	clear:left;
+}
+.button {
+	padding: 0.4em 1em;
+	display:block;
+	float:left;
+	line-height:1.4;
+	color: #71411A;
+	font-weight:bold;
+	font-size:1em;
+	text-align:center;
+	cursor:pointer;
+	text-decoration:none;
+	background: #eeeeee;
+	border: 1px solid #cccccc;
+	border-radius: 6px 6px 6px 6px;
+}
+
+/* menu items */
+#menuContainer {
+	float:left;
+	clear:left;
+	min-height:400px;
+}
+
+.menuItemContainer {
+	float:left;
+	width: 300px;
+	padding: 15px;
+	color:#545454;
+}
+
+.menuitemPriceContainer {
+	float: left;
+	width:100%;
+	padding-bottom:3px;
+}
+
+.menuitemPopup {
+	position:absolute;
+	display:none;
+	width: 300px;
+	background: #fff;
+	padding: 10px;
+	border: solid 5px #bbb;
+}
+
+.categoryName {
+	color: #6D3C14;
+	padding-bottom:5px;
+}
+
+.menuitemPopupAdd {
+	float:right;
+}
+
+.menuitemPopupContainer {
+	display:none;
+	float:left;
+	clear:left;
+	width:600px;
+	font-family:Arial;
+}
+
+.menuitemPopupContainerDescription {
+	float:left;
+	clear:left;
+	width:500px;
+	padding-bottom:10px;
+}
+
+.menuitemPopupContainerChoiceOptions {
+	float:left;
+	clear:left;
+	padding-bottom:10px;
+}
+
+.menuitemPopupContainerChoiceOptionList {
+	float:left;
+}
+
+.menuitemPopupContainerChoiceOptionContainer {
+	float:left;
+	clear:left;
+	padding-bottom:10px;
+}
+
+.menuitemPopupContainerChoiceOptionTitle {
+	float:left;
+	clear:left;
+	width:560px;
+	padding-top:5px;
+	padding-left:5px;
+	color:#71411a;
+	background:#ddd4cf;
+	height:30px;
+}
+
+.menuitemPopupContainerChoiceOptionItems {
+	float:right;
+	padding-right:5px;
+}
+
+.menuitemPopupContainerChoiceOption {
+	float:left;
+	width:280px;
+}
+
+.menuitemPopupContainerClose {
+	margin-right:10px;
+}
+
+.menuitemPopupContainerPrice {
+	text-align:right;
+	float:right;
+}
+
+.menuitemPopupComment {
+	float:left;
+	clear:left;
+	width:570px;
+	padding-bottom:10px;
+}
+
+.menuitemPopup label {
+	float:left;
+	clear:left;
+	padding-right:5px;
+}
+
+.menuitemPopup input {
+	float:left;
+	margin-right:15px;
+}
+
+.menuitemPopupContainerButtons {
+	float:left;
+	clear:left;
+	width:570px;
+}
+
+.menuitemPopupContainerAdd {
+	float:right;
+}
+
+.menuitemPopupContainerClose {
+	float:right;
+}
+
+.menuitemPopupContainerButtons button {
+	float:right;
+}
+
+.menuitemPopupName {
+	float:left;
+	clear:left;
+	color:#6D3C14;
+}
+
+.menuitemPopupPrice {
+	float:right;
+}
+
+.menuitemPopupDesc {
+	clear:left;
+	float:left;
+	padding-bottom:10px;
+}
+
+.menuitemName {
+	clear: left;
+	float: left;
+	width: 200px;
+}
+
+.menuitemPrice {
+	float:right;
+}
+
+.checkoutButton {
+	float:right;
+}
+
+/* header */
+
+#headerContainer, #bodyContainer {
+	float:left;
+	clear:left;
+	width:100%;
+}
+
+#headerContainer img {
+	float:left;
+	border:0;
+}
+
+#headerMyAccount {
+	float:right;
+	list-style-type:none;
+	margin:0;
+	padding-top:40px;
+	overflow:hidden;	
+}
+
+#headerMyAccount li {
+	float:left;
+	padding-right:15px;
+}
+
+#mainMenu {
+	clear:left;
+	float:right;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;		
+}
+
+#mainMenu li {
+	float:left;
+	padding-right:10px;
+}
+
+/* order summary */
+#os_container {
+	float:right;	
+	width:300px;
+	padding:10px;
+	color:#545454;
+	border-left: solid 1px black;
+	min-height:400px;
+}
+
+#os_container table {
+	float:left;
+}
+
+#os_container label {
+	float:left;
+	color:#6D3C14;
+	clear:left;
+	padding:5px;
+	width:125px;
+}
+
+#os_container address {
+	float:left;
+	padding-bottom:10px;
+}
+
+.os_choice_option {
+	font-size:10pt;
+	font-style:italic;
+}
+
+#os_cc_name {
+	float:left;
+	clear:left;
+	padding-bottom:5px;
+}
+
+#os_cc_info {
+	float:left;
+	clear:left;	
+	padding-bottom:15px;
+}
+#os_cc_exp {
+	float:right;
+}
+
+.os_item_name {
+	width:200px;
+}
+
+#os_items {
+	padding-bottom:10px;
+}
+
+#os_pickup_container label {
+	float:left;
+	clear:none;
+	width:40px;
+	color:#545454;
+}
+
+.pickupRadio {
+	float:left;
+	padding-left:10px;
+}
+
+.pickup {
+	float:left;
+}
+
+#os_pickup_time_container {
+	float:left;
+	clear:left;
+	padding-top:15px;
+	width:290px;
+	padding-bottom:15px;	
+}
+
+.pickupTimeLabel {
+	float:left;
+	padding-right:10px;
+}
+
+#checkoutButton {
+	clear:left;
+	float:right;
+}
+
+.openHour {
+	padding-left:55px;
+	color:#6D3C14;
+}
+
+/* application layout */
+
+.titleHeader {
+	float:left;
+	clear:left;
+	width:100%;
+	padding-top:5px;
+	padding-bottom:5px;
+	border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+	background:#ddd;
+	border: 1px solid #BBBBBB;
+    color: #444444;
+    font-weight: bold;	
+}
+
+.contentContainer {
+	float:left;
+	clear:left;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;	
+	border: 1px solid #BBBBBB;
+	width:100%;
+}
+
+/* login */
+#loginRegisterContainer {
+	display:none;
+	float:left;
+	clear:left;	
+	font-family:Arial;
+	font-size:12pt;
+}
+#registerContainer input {
+	font-family:Arial;
+}
+#loginContainer {
+	float:left;
+	clear:left;
+}
+#lc_signin_label {
+	float:left;
+	clear:left;
+	font-weight:bold;
+	padding-bottom:10px;
+	color: #6D3C14;	
+}
+#loginContainer label {
+	float:left;
+	clear:left;
+	width:100px;
+}
+#loginContainer input {
+	float:left;
+	margin-bottom:5px;
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px;
+}
+#resetPasswordContainer label {
+	float:left;
+	clear:left;
+	width:100px;
+}
+#resetPasswordContainer input {
+	float:left;
+	margin-bottom:5px;
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px;
+}
+#resetPasswordContainer select {
+	float:left;
+}
+#loginButton {
+	clear:left;
+	float:right;
+}
+#cancelButton {
+	clear:left;
+	float:right;
+	margin-top:10px;
+}
+#forgotPassword {
+	color: #6D3C14;
+	float:left;
+	clear:left;
+	padding-left:135px;
+	padding-bottom:20px;
+	font-size:11pt;
+	text-decoration:underline;	
+}
+#resetPasswordContainer {
+	float:left;
+	clear:left;
+}
+#registerContainer {
+	float:left;
+	padding-left:30px;
+	font-family:Arial;
+}
+#registerContainer select {
+	font-family:Arial;
+	float:left;
+}
+#rc_signup_label {
+	float:left;
+	clear:left;
+	font-weight:bold;
+	padding-bottom:10px;
+	color: #6D3C14;
+}
+#registerContainer label {
+	float:left;
+	clear:left;
+	width:155px;
+}
+#registerContainer input {
+	float:left;
+	margin-bottom:5px;
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px;
+}
+#registerButton {
+	float:right;
+	clear:left;
+	margin-left:10px;
+	margin-top:10px;
+}
+#creditcard_label {
+	float:left;
+	clear:left;
+	margin-top:20px;
+	padding-bottom:10px;
+	color: #6D3C14;	
+}
+#creditcard_delete {
+	margin-top:20px;
+	float:right;
+}
+
+.ui-widget-content {
+	background:white;
+}
+
+/* footer */
+#footerContainer {
+	float:left;
+	clear:left;
+	list-style-type:none;
+	padding:0;
+	overflow:hidden;
+	margin-left:280px;
+}
+
+#footerContainer li {
+	float:left;
+	padding:10px;
+}
+
+/* company */
+#companyContainer {
+	float:left;
+	clear:left;
+	padding-left:10px;
+	padding-bottom:20px;
+}
+
+#companyContainer label,#companyContainer input {
+	float:left;
+	margin-right:5px;
+}
+
+#coLocations {
+	float:left;
+	clear:left;
+}
+
+.locationInfo {
+	float:left;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+
+.locationInfo li {
+	float:left;
+	clear:left;
+	text-align:center;
+}
+
+.seeMap {
+	text-decoration:underline;
+}
+
+#map_dialog {
+	float:left;
+}
+
+#map_canvas {
+	float:left;
+	width:500px;
+	height:500px;
+}
+
+
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+
+
+
+
+
+

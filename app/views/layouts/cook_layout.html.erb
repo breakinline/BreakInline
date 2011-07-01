@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <%= csrf_meta_tag %>
+	<%= stylesheet_link_tag 'overcast/jquery-ui-1.8.11.custom.css', :media => 'screen' %>
+	<%= stylesheet_link_tag 'cook', :media => 'screen' %>
+	<%= javascript_include_tag 'jquery-1.5.1.min.js' %>
+	<%= javascript_include_tag 'jquery-ui-1.8.11.custom.min.js' %>	
+	<%= javascript_include_tag 'cook.js' %>
+	
+  </head>
+  <body>
+	<div id="cook_header">
+	  <%= render 'layouts/cook_header'%>
+	</div>
+	<%=yield%>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<% unless session[:locationId].nil? %>
+<a href="/locations/<%=session[:locationId].to_s%>">
+	<img src="/images/<%=session[:context]%>/logo.png" border="0"/>
+</a>
+<% unless session[:profileId].nil? %>
+<div id="cook_logout"><a href="/cookview/logout" id="logout">logout</a></div>
+<div id="cook_welcome">Hi <%=@profile.first_name%></div>
+<% end %>
+<% end %>

@@ -1,0 +1,136 @@
+body {
+	font-family:Arial;
+	font-size:12pt;
+	width:700px;
+}
+a:hover{
+  	cursor:pointer;	
+	text-decoration:underline;
+}
+.button {
+	padding: 0.4em 1em;
+	display:block;
+	line-height:1.4;
+	color: #71411A;
+	font-weight:bold;
+	font-size:1em;
+	text-align:center;
+	cursor:pointer;
+	text-decoration:none;
+	background: #eeeeee;
+	border: 1px solid #cccccc;
+	border-radius: 6px 6px 6px 6px;
+}
+
+.selected {
+	background:#ccc;
+}
+
+.cook_label {
+	width:120px;
+	float:left;
+}
+
+#orderDetailContainer {
+	float:left;
+}
+
+#prepareStatus {
+	float:right;
+}
+
+#completeButton {
+	float:left;
+}
+
+#backButton {
+	float:left;
+	margin-right:10px;
+}
+
+#completeStatus {
+	float:right;
+	margin-right:10px;
+}
+
+#orders_table_title {
+	background-color:#71411A;
+}
+
+#orderTable th {
+	white-space:nowrap;
+}
+
+#customerColumn {
+	width:180px;
+}
+
+#orders_table_title #status {
+	float:right;
+}
+
+#cook_header img {
+	border:none;
+	padding-bottom:15px;
+}
+
+#cook_welcome {
+	float:right;
+    padding-right: 10px;
+    padding-top: 40px;	
+}
+
+#cook_logout {
+	float:right;
+	padding-left:5px;
+	padding-top: 40px;
+}
+
+#orders_table {
+	float:left;
+	clear:left;
+	width:100%;
+}
+
+#orders_table_title {
+	padding:5px;
+	float:left;
+	width:98%;
+}
+
+#orderContainer {
+	float:left;
+	clear:left;
+}
+
+#loginContainer {
+	float:left;
+	clear:left;
+}
+
+#loginContainer label {
+	float:left;
+	clear:left;
+	width: 120px;
+}
+
+#loginContainer input {
+	float:left;
+	margin-bottom:10px;
+}
+
+#locationContainer {
+	float:left;
+	clear:left;
+	margin-bottom:10px;
+}
+
+.ui-widget-content {
+	background:white;
+}
+
+#loginButton {
+	clear:left;
+	float:right;
+	padding-right:10px;
+}
