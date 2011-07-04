@@ -1,4 +1,3 @@
-
 class MainController < ApplicationController
   def deleteItem
     # first delete our options and choices.

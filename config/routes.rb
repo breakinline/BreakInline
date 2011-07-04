@@ -40,4 +40,5 @@ Breakinline::Application.routes.draw do
   match 'admin/get_node', :to => 'admin#get_node'
   match 'admin/:id', :to => 'admin#show'
   
+  match 'mobile/:id', :to => 'mobile#show'
 end
