@@ -67,6 +67,7 @@ Ext.onReady(function(){
 		items: [loginForm]
 	});
 	loginWindow.show();
+	Ext.getCmp('email').focus();
 }); //end onReady
 
 function showAdmin() {
@@ -540,6 +541,8 @@ function showUser(form, id, parentId) {
 				cardNumber.setValue(user.card_number);		
 			}
 		});	
+	} else {
+		firstName.focus();
 	}	
 }
 
@@ -614,6 +617,8 @@ function showGroup(form, id, parentId) {
 				}
 			}
 		});	
+	} else {
+		name.focus();
 	}
 }
 
@@ -673,6 +678,8 @@ function showChoiceOption(form, id, parentId) {
 				price.setValue(choiceOption.price);
 			}
 		});	
+	} else {
+		name.focus();
 	}
 }
 
@@ -709,6 +716,8 @@ function showCompany(form, id) {
 				context.setValue(company.context);	
 			}
 		});
+	} else {
+		name.focus();
 	}
 }
 
@@ -852,6 +861,8 @@ function showLocation(form, id, parentId) {
 				apiTransactionKey.setValue(location.api_transaction_key);
 			}
 		});	
+	} else {
+		name.focus();
 	}
 }
 
@@ -900,6 +911,8 @@ function showCategory(form, id, parentId) {
 				position.setValue(category.position);
 			}
 		});
+	} else {
+		name.focus();
 	}	
 }
 
@@ -967,5 +980,7 @@ function showMenuItem(form, id, parentId) {
 				position.setValue(menuItem.position);
 			}
 		});	
+	} else {
+		name.focus();
 	}
 }

@@ -1,7 +1,12 @@
 body {
-	margin: auto;
-	width: 1024px;
+	margin: 10px 0px 0px 10px;
 	color: #545454;
+}
+
+#Content {
+	width: 830px;
+	margin: 0px auto;
+	text-align:left;
 }
 
 #tree-div {

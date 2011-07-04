@@ -14,6 +14,7 @@ class AdminController < ApplicationController
     else
       locationValid = false
       passwordValid = false
+      roleValid = false
       users.each do |user|
         company.locations.each do |location|
           lu = LocationsUser.find_by_user_id_and_location_id(user.id, location.id)
@@ -21,7 +22,10 @@ class AdminController < ApplicationController
             locationValid = true
             if user.password == params[:password]
               passwordValid = true
-              session[:userId] = user.id
+              if user.role == 'admin'
+                roleValid = true
+                session[:userId] = user.id
+              end
             end
           end
         end
@@ -30,8 +34,11 @@ class AdminController < ApplicationController
         render :json => '{"failure":"Sorry.  That email is not recognized for company: ' + company.name  + '."}'
       elsif passwordValid == false
         render :json => '{"failure":"Sorry.  The supplied password does not match what is on file."}'
+      elsif roleValid == false
+        render :json => '{"failure":"Sorry.  This user does not have authorization for administration."}'
+      else
+        render :json => '{"success":"Successfully deleted"}'
       end
-      render :json => '{"success":"Successfully deleted"}'
     end
   end
   def get_node

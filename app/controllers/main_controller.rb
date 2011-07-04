@@ -27,7 +27,7 @@ class MainController < ApplicationController
   end
   def login
     logger.debug('locationId: ' + session[:locationId].to_s)
-    @profile = User.find_by_email_and_password(params[:email], params[:password])   
+    @profile = User.find_by_email_and_password(params[:email].upcase, params[:password])   
     if @profile.nil? 
       render :text => "That user was not found.  Please re-enter"
     else
@@ -232,7 +232,7 @@ class MainController < ApplicationController
         return
       end
       user = User.new
-      user.email = params[:email]
+      user.email = params[:email].upcase
     end
     user.password = params[:password]
     user.last_name = params[:lastname]
@@ -244,7 +244,9 @@ class MainController < ApplicationController
     user.postal = params[:postal]
     user.phone = params[:phone]
     user.card_type = params[:cardtype]
-    user.role = 'User'
+    if user.role.nil?
+      user.role = 'user'
+    end
     # if credit card begins with 'X' don't save
     logger.debug('cardno: ' + params[:cardno])
     unless params[:cardno].starts_with? 'xxxx'
