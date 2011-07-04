@@ -12,6 +12,7 @@ class Admin::UserController < ApplicationController
       user.email = params[:email].upcase
       user.address_1 = params[:address1]
       user.address_2 = params[:address2]
+      user.role = params[:role].downcase
       user.city = params[:city]
       user.state = params[:state]
       user.postal = params[:postal]
@@ -44,7 +45,7 @@ class Admin::UserController < ApplicationController
       render :json => '{"failure":"User email: ' + params[:email] + ' already exists in location: ' + location.name + '."}'  
     else
       user = User.new
-      user.role = params[:role]
+      user.role = params[:role].downcase
       user.first_name = params[:firstName]
       user.last_name = params[:lastName]
       user.email = params[:email].upcase
