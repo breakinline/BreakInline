@@ -6,7 +6,11 @@ class Admin::ChoiceOptionGroupController < ApplicationController
     if groups.size > 1
       render :json => '{"failure":"Group name: ' + params[:name] + ' already exists in menu item: ' + menuItem.name + '."}'  
     else
-      choiceOptionGroup.item_type = params[:itemType]
+      if params[:itemType] == 'choice'
+        choiceOptionGroup.item_type = 2
+      else
+        choiceOptionGroup.item_type = 3
+      end
       choiceOptionGroup.position = params[:position]
       choiceOptionGroup.name = params[:name]
       choiceOptionGroup.max_quantity = params[:maxQuantity]
@@ -37,7 +41,11 @@ class Admin::ChoiceOptionGroupController < ApplicationController
       choiceOptionGroup.name = params[:name]
       choiceOptionGroup.description = params[:description]
       choiceOptionGroup.position = params[:position]
-      choiceOptionGroup.item_type = params[:itemType]
+      if params[:itemType] == 'choice'
+        choiceOptionGroup.item_type = 2
+      else
+        choiceOptionGroup.item_type = 3
+      end
       choiceOptionGroup.menu_item_id = menuItem.id
       choiceOptionGroup.max_quantity = params[:maxQuantity]
       choiceOptionGroup.save
