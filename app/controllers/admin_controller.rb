@@ -37,7 +37,7 @@ class AdminController < ApplicationController
       elsif roleValid == false
         render :json => '{"failure":"Sorry.  This user does not have authorization for administration."}'
       else
-        render :json => '{"success":"Successfully deleted"}'
+        render :json => '{"success":"Successfully logged in"}'
       end
     end
   end

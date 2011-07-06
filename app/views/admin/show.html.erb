@@ -11,7 +11,7 @@ var store = Ext.create('Ext.data.TreeStore', {
 		url: '/admin/get_node'
 	},
 	root: {
-		text: '<%=@company.name%>',
+		text: "<%=@company.name%>",
 		id: 'src/<%=@company.id%>',
 		iconCls: 'company',
 		expanded:true
