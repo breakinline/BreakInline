@@ -68,6 +68,7 @@ div.error {
 .categoryName {
 	color: #6D3C14;
 	padding-bottom:5px;
+	min-width: 150px;
 }
 
 .menuitemPopupAdd {

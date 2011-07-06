@@ -11,11 +11,11 @@
 	<span class="categoryName"><%= category.name %></span>
 	<% category.menu_items.each do |menuItem| %>
 	  <div class="menuitemPriceContainer">
-		<span class="categoryName">&gt;</span>&nbsp;<%= menuItem.name %>
+		<span class="categoryName">&gt;&nbsp;<%= menuItem.name %>
 		<span class="menuitemPrice"><%= number_to_currency(menuItem.price) %></span>	
 	    <div class="menuitemPopup">
 		  <span class="menuitemPopupName"><%= menuItem.name %></span>
-		  <span class="menuitemPopupPrice"><%= menuItem.price %></span>				
+		  <span class="menuitemPopupPrice"><%= number_to_currency(menuItem.price) %></span>				
 		  <span class="menuitemPopupDesc"><%= menuItem.description %></span>
 		  <input type="hidden" value="<%=menuItem.id%>" class="menuItemAddId"/>
 		  <input type="hidden" value="<%=menuItem.name%>" class="menuItemName"/>
