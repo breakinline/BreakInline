@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
   OrderLock = 'OrderLock'
   OrderItemLock = 'OrderItemLock'
-
+  
+  def require_ssl
+    redirect_to :protocol => "https://" unless (request.ssl? || REGISTRY[:local_request])
+  end  
+  
   def reprice(order)
     total = 0.0
     order.order_items.each do |orderItem|

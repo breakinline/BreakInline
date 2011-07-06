@@ -890,6 +890,14 @@ function showCategory(form, id, parentId) {
         fieldLabel: 'Name'
 	});
 	form.add(name);
+	var description = new Ext.form.TextArea({
+        xtype: 'textareafield',
+        name: 'description',
+		allowBlank: true,
+        fieldLabel: 'Description',
+		grow:true,
+	});
+	form.add(description);
 	var position = new Ext.form.NumberField({
         xtype: 'numberfield',
         name: 'position',
@@ -908,6 +916,7 @@ function showCategory(form, id, parentId) {
 			success: function(response) {
 				var category = Ext.decode(response.responseText).category;
 				name.setValue(category.name);
+				description.setValue(category.description);
 				position.setValue(category.position);
 			}
 		});

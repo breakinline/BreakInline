@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   layout 'admin_layout'
+  before_filter :require_ssl, :only => [:login]
   def show
     @company = Company.find(params[:id])
     logger.debug('set company: ' + @company.id.to_s)

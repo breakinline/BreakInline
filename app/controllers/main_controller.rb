@@ -1,4 +1,5 @@
 class MainController < ApplicationController
+  before_filter :require_ssl, :only => [:login, :register, :resetPassword]
   def deleteItem
     # first delete our options and choices.
     OrderItem.delete_all(["parent_order_item_id = ?", params[:orderItemId]])
@@ -25,7 +26,6 @@ class MainController < ApplicationController
     end
   end
   def login
-    logger.debug('locationId: ' + session[:locationId].to_s)
     @profile = User.find_by_email_and_password(params[:email].upcase, params[:password])   
     if @profile.nil? 
       render :text => "That user was not found.  Please re-enter"

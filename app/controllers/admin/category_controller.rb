@@ -8,6 +8,7 @@ class Admin::CategoryController < ApplicationController
     else
       category.name = params[:name]
       category.position = params[:position]
+      category.description = params[:description]
       category.save
       render :json => '{"success":"Updated Successfully", "name":"' + category.name + '","id":"' +
         'src/' + location.company_id.to_s + '/' + location.id.to_s + '/' + category.id.to_s + '","iconCls":"category"}'
@@ -38,6 +39,7 @@ class Admin::CategoryController < ApplicationController
       category = Category.new
       category.location_id = location.id
       category.name = params[:name]
+      category.description = params[:description]
       category.position = params[:position]
       category.save
       render :json => '{"success":"Created Successfully", "name":"' + category.name + '","id":"' +

@@ -31,6 +31,7 @@ Breakinline::Application.configure do
     :user_name            => 'james.m.sewell@gmail.com',
     :password             => 'james6',
     :authentication       => 'plain',
-    :enable_starttls_auto => true  }  
+    :enable_starttls_auto => true  } 
 end
+REGISTRY[:local_request] = true
 

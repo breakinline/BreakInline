@@ -1,14 +1,28 @@
 class Admin::ChoiceOptionController < ApplicationController
   def update
     choiceOptionGroup = ChoiceOptionGroup.find(params[:parent])
-    groups = ChoiceOption.find_all_by_name_and_choice_option_group_id(params[:name], choiceOptionGroup.id)
-    if groups.size > 1
-      if choiceOptionGroup.item_type == 2
-        render :json => '{"failure":"Choice name: ' + params[:name] + ' already exists in group:: ' + choiceOptionGroup.name + '."}'         
-      else
-        render :json => '{"failure":"Option name already exists in menu item: ' + choiceOptionGroup.name + '."}' 
-      end      
+    choiceOption = ChoiceOption.find(params[:id])
+    unless params[:copy].nil?
+      choiceOptionCopy = ChoiceOption.new
+      choiceOptionCopy.choice_option_group_id = choiceOptionGroup.id
+      choiceOptionCopy.name = choiceOption.name + " Copy"
+      choiceOptionCopy.price = choiceOption.price
+      choiceOptionCopy.position = choiceOption.position
+      choiceOptionCopy.save
+      render :json => '{"success":"Updated Successfully", "name":"' + choiceOptionCopy.name + '","id":"' +
+        'src/' + choiceOptionGroup.menu_item.category.location.company_id.to_s + '/' + 
+        choiceOptionGroup.menu_item.category.location_id.to_s + '/' + choiceOptionGroup.menu_item.category_id.to_s + 
+        '/' + choiceOptionGroup.menu_item.id.to_s + '/' + choiceOptionGroup.id.to_s + '/' + choiceOptionCopy.id.to_s + 
+        '","iconCls":"choice_option","leaf":true}'     
     else
+      groups = ChoiceOption.find_all_by_name_and_choice_option_group_id(params[:name], choiceOptionGroup.id)
+      if groups.size > 1
+        if choiceOptionGroup.item_type == 2
+          render :json => '{"failure":"Choice name: ' + params[:name] + ' already exists in group:: ' + choiceOptionGroup.name + '."}'         
+        else
+          render :json => '{"failure":"Option name already exists in menu item: ' + choiceOptionGroup.name + '."}' 
+        end
+      end      
       choiceOption = ChoiceOption.find(params[:id])
       choiceOption.price = params[:price]
       choiceOption.position = params[:position]
@@ -17,7 +31,8 @@ class Admin::ChoiceOptionController < ApplicationController
       render :json => '{"success":"Updated Successfully", "name":"' + choiceOption.name + '","id":"' +
         'src/' + choiceOptionGroup.menu_item.category.location.company_id.to_s + '/' + 
         choiceOptionGroup.menu_item.category.location_id.to_s + '/' + choiceOptionGroup.menu_item.category_id.to_s + 
-        '/' + choiceOptionGroup.id.to_s + '/' + choiceOption.id.to_s + '","iconCls":"choice_option","leaf":true}'
+        '/' + choiceOptionGroup.menu_item.id.to_s + '/' + choiceOptionGroup.id.to_s + '/' + choiceOption.id.to_s + 
+        '","iconCls":"choice_option","leaf":true}'
     end
   end
   def show

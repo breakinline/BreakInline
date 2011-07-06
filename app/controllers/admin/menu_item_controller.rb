@@ -17,11 +17,11 @@ class Admin::MenuItemController < ApplicationController
         cog.name = group.name
         cog.max_quantity = group.max_quantity
         cog.description = group.description
-        cog.menu_item_id = group.menu_item_id
+        cog.menu_item_id = menuItemCopy.id
         cog.save
         group.choice_options.each do |choiceOption|
           choiceOptionCopy = ChoiceOption.new
-          choiceOptionCopy.choice_option_group_id = group.id
+          choiceOptionCopy.choice_option_group_id = cog.id
           choiceOptionCopy.name = choiceOption.name
           choiceOptionCopy.price = choiceOption.price
           choiceOptionCopy.position = choiceOption.position
