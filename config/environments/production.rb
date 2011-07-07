@@ -47,4 +47,4 @@ Breakinline::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 end
-REGISTRY[:local_request] = false
+REGISTRY[:local_request] = true
