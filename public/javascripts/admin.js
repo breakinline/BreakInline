@@ -79,6 +79,7 @@ function showAdmin() {
 		height: 700,
 		width: 300,
 		title: 'Editor',
+		autoScroll: true,
 		useArrows: true,
 		listeners: {
 			itemclick: function(node,e) {
