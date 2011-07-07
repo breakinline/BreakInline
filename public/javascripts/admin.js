@@ -187,13 +187,13 @@ function showAdmin() {
 					var depth = node.data.depth + 1;
 					switch(depth) {							
 						case MENU_ITEM:
-							copyItem(MENU_ITEM, node);				
+							copyItem(formPanel, MENU_ITEM, node);				
 							break;
 						case GROUP:
-							copyItem(GROUP, node);
+							copyItem(formPanel, GROUP, node);
 							break;
 						case CHOICE_OPTION:
-							copyItem(CHOICE_OPTION, node);
+							copyItem(formPanel, CHOICE_OPTION, node);
 							break;
 					}
 				}
@@ -282,7 +282,7 @@ function showAdmin() {
 	formPanel.render('form-div');	
 }
 
-function copyItem(type, node) {
+function copyItem(formPanel, type, node) {
 	var path = node.data.id.split('\/');
 	var message = 'Are you sure you would like to copy ';
 	var url = '/admin/';
@@ -310,20 +310,23 @@ function copyItem(type, node) {
 					var jsonObj = Ext.decode(response.responseText);
 					var treeNode = Ext.getCmp('treeNav').getSelectionModel().selected.get(0).parentNode;
 					var path = treeNode.data.id.split('\/');
+					var newNode = [];
 					if (path.length == 6) {
-						treeNode.appendChild({id: jsonObj.id, text: jsonObj.name, iconCls: jsonObj.iconCls, leaf:true});
+						newNode[0] = treeNode.appendChild({id: jsonObj.id, text: jsonObj.name, iconCls: jsonObj.iconCls, leaf:true});
 					} else {
-						treeNode.appendChild({id: jsonObj.id, text: jsonObj.name, iconCls: jsonObj.iconCls, leaf:false});
+						newNode[0] = treeNode.appendChild({id: jsonObj.id, text: jsonObj.name, iconCls: jsonObj.iconCls, leaf:false});
 					}
+					Ext.getCmp('treeNav').getSelectionModel().select(newNode, false, false);
+					var newPath = jsonObj.id.split('\/');
 					switch (type) {
 						case MENU_ITEM:
-							showMenuItem(formPanel, jsonObj.id, path[CATEGORY]);
+							showMenuItem(formPanel, newPath[MENU_ITEM], path[CATEGORY]);
 							break;
 						case GROUP:
-							showGroup(formPanel, jsonObj.id, path[MENU_ITEM]);
+							showGroup(formPanel, newPath[GROUP], path[MENU_ITEM]);
 							break;
 						case CHOICE_OPTION:
-							showChoiceOption(formPanel, jsonObj.id, path[CHOICE_OPTION]);
+							showChoiceOption(formPanel, newPath[CHOICE_OPTION], path[GROUP]);
 							break;
 					}
 				}

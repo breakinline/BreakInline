@@ -33,7 +33,7 @@ class Admin::MenuItemController < ApplicationController
         category.id.to_s + '/' + menuItemCopy.id.to_s + '","iconCls":"menu_item"}'      
     else
       menuItems = MenuItem.find_by_name_and_category_id(params[:name], category.id)
-      unless menuItems.nil?
+      if menuItems.size > 1
         render :json => '{"failure":"Menu Item name: ' + params[:name] + ' already exists in category: ' + category.name + '."}'
       else
         menuItem.name = params[:name]
