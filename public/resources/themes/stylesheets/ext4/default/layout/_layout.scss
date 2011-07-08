@@ -39,18 +39,6 @@
     .#{$prefix}docked-noborder-left {
         border-left-width: 0 !important;
     }
-        
-/*    
-    // Needs important to win over the .#{$prefix}docked-left/right/top/bottom rules above.
-    .\#{$prefix}panel-collapsed-placeholder {
-        border-width: 1px !important;
-    } 
-    
-    .\#{$prefix}region-collapsed-placeholder {
-        border-width: 1px;
-    }
-    */
-    
     
     .#{$prefix}box-inner {
         overflow:hidden;

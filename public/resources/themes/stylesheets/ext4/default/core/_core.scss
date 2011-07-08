@@ -39,6 +39,10 @@ body {
     @include opacity(0.4);
 }
 
+.#{$prefix}ie6 .#{$prefix}item-disabled {
+    filter:none;
+}
+
 .#{$prefix}hidden,
 .#{$prefix}hide-offsets {
     display: block !important;

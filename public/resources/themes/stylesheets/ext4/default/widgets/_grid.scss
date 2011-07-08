@@ -742,8 +742,12 @@
         zoom: 1;
         overflow: visible !important;
 
-        .#{$prefix}form-field, .#{$prefix}form-display-field {
+        .#{$prefix}form-field {
             font: $grid-row-editor-font;
+        }
+        .#{$prefix}form-display-field {
+            font: $grid-row-editor-font;
+            padding-top: 0;
         }
 
         .#{$prefix}panel-body {

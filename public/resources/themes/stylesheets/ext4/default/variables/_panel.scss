@@ -5,6 +5,7 @@ $include-panel-uis: true;
 // ========= BASE PANEL ==========
 // ===============================
 $panel-border-radius: null !default;
+$panel-border-width: 1px !default;
 $panel-base-color: adjust-color($base-color, $hue: 3.188deg, $saturation: 0.542%, $lightness: 7.843%) !default; //#DFE8F6
 $panel-border-color: adjust-color($base-color, $hue: 0.844deg, $saturation: 7.644%, $lightness: -8.627%) !default;
 
