@@ -13,6 +13,14 @@ class Location < ActiveRecord::Base
   validates :phone, :presence => true
   validates :company_id, :presence => true
   
+  def distance
+    @distance 
+  end
+  
+  def distance=(distance)
+    @distance = distance
+  end
+  
   def beginDay(day)
     self.hours_of_operations.each do |hoo|
       if hoo.day == day

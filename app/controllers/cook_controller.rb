@@ -1,5 +1,6 @@
 class CookController < ApplicationController
   layout 'cook_layout'
+  before_filter :require_ssl, :only => [:login]
   def index
     unless params[:id].nil?
       session[:locationId] = params[:id]

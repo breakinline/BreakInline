@@ -16,6 +16,7 @@ Breakinline::Application.routes.draw do
   
   match 'main/resetpassword', :to => 'main#resetPassword'
   match 'order/copyorder', :to => 'main#copyOrder'
+  match 'main/storelocations', :to => 'main#storeLocations'
   match 'main/refreshprevorders', :to => 'main#refreshPrevOrders'
   match 'main/getprofile', :to => 'main#getProfile'
   match 'locations/:id', :to => 'main#show'
@@ -40,7 +41,9 @@ Breakinline::Application.routes.draw do
   match 'admin/get_node', :to => 'admin#get_node'
   match 'admin/:id', :to => 'admin#show'
   
+  match 'mobile/map/:id', :to => 'mobile#map'
   match 'mobile/locations/:id', :to => 'mobile#show'
   match 'mobile/companies/:id', :to => 'mobile#company'
+  match 'mobile/storelocations', :to => 'mobile#storeLocations'
   
 end

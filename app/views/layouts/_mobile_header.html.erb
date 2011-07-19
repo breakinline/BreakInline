@@ -1,0 +1,12 @@
+<a href="/locations/<%=session[:locationId].to_s%>">
+	<img src="/images/<%=session[:context]%>/mobile_logo.png" border="0"/>
+</a>
+<ul id="headerMyAccount">
+	  <% if session[:profileId].nil? %>
+    <li><a id="signIn">Sign in</a></li>
+    <% else %>
+    <li>Welcome Back <%=@profile.first_name%></li>
+	<% end %>
+</ul>
+
+

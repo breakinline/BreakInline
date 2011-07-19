@@ -18,6 +18,10 @@ class MainController < ApplicationController
         @profile = User.find(session[:profileId])
     end 
   end
+  def storeLocations
+    
+    render :partial =>'locations'
+  end
   def company
     @company = Company.find(params[:id]) 
     session[:context] = @company.context   
@@ -121,7 +125,7 @@ class MainController < ApplicationController
       @prevorders = Order.limit(5).find_all_by_user_id(session[:profileId], :conditions => "status <> 'New'", 
                                                                    :order => "placed_at desc")
     end
-    render :partial => "shared/prev_orders"   
+    render :partial => "prev_orders"   
   end
   def checkout
     order = getOrder()
@@ -212,7 +216,7 @@ class MainController < ApplicationController
     session[:orderId] = nil
     @profile = User.find(session[:profileId])
     Mailer.order_confirmation_email(@profile, @prevorder).deliver 
-    render :partial => "shared/thank_you"
+    render :partial => "thank_you"
   end
   def thankyoutest
     @prevorder = Order.find(params[:orderId])
@@ -287,7 +291,7 @@ class MainController < ApplicationController
     unless session[:profileId].nil?
       @profile = User.find(session[:profileId])
     end
-    render :partial => "shared/order_summary"
+    render :partial => "order_summary"
   end 
   def updateQuantity
     lockId = lock(OrderItemLock)
