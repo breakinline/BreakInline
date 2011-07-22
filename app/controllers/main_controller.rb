@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-  before_filter :require_ssl, :only => [:login, :register, :resetPassword]
+  before_filter :require_ssl, :only => [:login, :register, :resetPassword, :checkout]
   def deleteItem
     # first delete our options and choices.
     OrderItem.delete_all(["parent_order_item_id = ?", params[:orderItemId]])
@@ -257,7 +257,6 @@ class MainController < ApplicationController
     end
     user.expiration_month = params[:expmonth]
     user.expiration_year = params[:expyear]
-    user.cvv = params[:cvv]
     user.answer = params[:answer]
     user.challenge = params[:challenge]
     user.save

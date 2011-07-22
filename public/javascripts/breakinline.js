@@ -529,9 +529,9 @@ jQuery(document).ready(function() {
 	}
 	jQuery.blockUI();
 	// should be okay, let's try and auth
-	var url = '/order/checkout';
+	var url = '/order/checkout?cvv=' + jQuery('#cvv').val();
 	if (jQuery('.pickup').val() == 'later') {
-		url += '?pickupDate=' + escape(jQuery('#pickupDatePicker').val());
+		url += '&pickupDate=' + escape(jQuery('#pickupDatePicker').val());
 	}
 	jQuery.post(url, function(data) {
 	  if (data == 'success') {
