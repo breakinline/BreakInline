@@ -140,3 +140,108 @@ input {
 	margin-left:120px;
 	margin-top:10px;
 }
+
+/* categories */
+#menuContainer {
+	float:left;
+	clear:left;
+}
+
+.category {
+	float:left;
+	clear:left;
+	border-radius: 6px 6px 6px 6px;
+	border-color: #c0c0c0;
+	padding: 5px;
+	line-height:1.4;
+	cursor:pointer;
+	text-decoration:none;
+	border-left:1px solid gray;
+	border-top:1px solid gray;
+	border-right:1px solid gray;
+	width:320px;
+	background: #eeeeee;
+}
+
+#categoryContainer {
+	float:left;
+	clear:left;
+}
+
+#navCatBack {
+	float:left;
+	clear:left;
+	width:320px;
+	padding: 5px;
+	line-height:1.4;
+	text-align:center;
+	cursor:pointer;
+	border:1px solid gray;
+	background: #eeeeee;	
+	margin-bottom:10px;
+}
+
+.menuItemNavBack,.categoryNavBack {
+	color:blue;
+	text-decoration:underline;
+	float:left;
+}
+
+.menuItem {
+	float:left;
+	clear:left;
+	width:320px;
+	padding: 5px;
+	line-height:1.4;
+	cursor:pointer;
+	border-left:1px solid gray;
+	border-top:1px solid gray;
+	border-right:1px solid gray;
+	background: #eeeeee;	
+}
+
+.menuItemPriceLabel {
+	float:right;
+}
+
+#menuItemDesc {
+	float:left;
+	clear:left;
+}
+
+#menuItemPrice {
+	float:right;
+	clear:left;
+	margin-top:20px;
+}
+
+#groupContainer {
+	float:left;
+	clear:left;
+	margin-top:10px;
+}
+
+.choiceOption {
+	float:left;
+	margin-top:10px;
+}
+
+#groupContainer label {
+	float:left;
+	margin-right:5px;
+	margin-top:10px;
+}
+
+.choiceOption select {
+	float:left;
+}
+
+.choiceOption input {
+	float:left;
+}
+
+#add2cart {
+	float:right;
+	clear:left;
+	margin-top:20px;
+}

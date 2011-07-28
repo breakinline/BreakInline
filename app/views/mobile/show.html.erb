@@ -1,0 +1,13 @@
+<div id="menuContainer">
+  <% @location.categories.each_with_index do |category, index| %>
+  <% if index == @location.categories.size-1 %>
+  <div class="category" style="border-bottom:solid 1px gray">  
+  <% else %>
+  <div class="category">
+  <% end %>
+    <span class="indicator">&gt;</span>
+    <%=category.name%>
+    <input type="hidden" class="categoryId" value="<%=category.id%>"/>
+  </div>
+  <% end %>
+</div>

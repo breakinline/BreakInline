@@ -45,5 +45,6 @@ Breakinline::Application.routes.draw do
   match 'mobile/locations/:id', :to => 'mobile#show'
   match 'mobile/companies/:id', :to => 'mobile#company'
   match 'mobile/storelocations', :to => 'mobile#storeLocations'
-  
+  match 'mobile/category/:id', :to => 'mobile#category'
+  match 'mobile/menuItem/:id', :to => 'mobile#menuItem'
 end

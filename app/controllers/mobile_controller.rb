@@ -56,4 +56,12 @@ class MobileController < ApplicationController
     @location = Location.find(params[:id])
     render :layout => false
   end
+  def category
+  	@category = Category.find(params[:id])
+  	render :partial => '/mobile/category'
+  end
+  def menuItem
+	@menuItem = MenuItem.find(params[:id])
+	render :partial => '/mobile/menuItem'  
+  end
 end
