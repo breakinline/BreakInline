@@ -1,0 +1,19 @@
+<div id="categoryContainer">
+	<div id="navCatBack">
+		<input type="hidden" id="navCategoryId" value="<%=@category.location.id%>"/>
+		<a class="categoryNavBack">back</a>
+		<%=@category.name%>
+	</div>
+	<% @category.menu_items.each_with_index do | menu_item, index | %>
+	<% if index == @category.menu_items.size - 1 %>
+	<div class="menuItem" style="border-bottom:solid 1px gray;">
+	<% else %> 
+	<div class="menuItem">
+	<% end %>
+    	<span class="indicator">&gt;</span>
+    	<%=menu_item.name%>
+    	<span class="menuItemPriceLabel"><%=number_to_currency(menu_item.price)%></span>
+    	<input type="hidden" class="menuItemId" value="<%=menu_item.id%>"/>		
+	</div>
+	<% end %>
+</div>

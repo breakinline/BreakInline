@@ -1,0 +1,11 @@
+<%@locations.each do |location|%>
+<ul class="locationInfo">
+  <li><a class="locationName" href="/mobile/locations/<%=location.id%>"><%=location.name%></a></li>
+  <li class="locationAddress"><%=location.address1%></li>
+  <li class="locationCityStateZip"><%=location.city%>, <%=location.state%> <%=location.postal%></li>
+  <li><%=location.phone%>  <a class="seeMap" target="_new" href="/mobile/map/<%=location.id%>">See Map</a></li>  
+  <li class="locationMileage">Distance: <%=location.distance%> miles</li>
+  <li>Open today from <%=location.beginDay(Time.now.wday)%> to <%=location.endDay(Time.now.wday)%></li>
+</li>
+<% end %>
+
