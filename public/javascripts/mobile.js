@@ -66,5 +66,34 @@ jQuery(document).ready(function() {
 		if (jQuery(this).val() == 'Type your comment here.') {
 	  		jQuery(this).val('');
 		}
-  	});  		
+  	});  
+	
+	jQuery('#signIn').live('click', function() {
+		jQuery('#bodyContainer').load('/mobile/loginform');
+	});	
+	
+	function home() {
+		window.location = '/mobile/locations/' + locationId;
+	}
+	
+	jQuery('#loginBtn').live('click', function() {
+		var url = '/mobile/login?email=' + jQuery('#email').val() + '&password=' + jQuery('#password').val();
+		jQuery.post(url, function(data) {
+			if (data == 'success') {
+				home();
+			} else {
+				alert(data);
+			}
+		});
+	});
+	
+  	jQuery('#logout').live('click', function() {
+		jQuery.post('/mobile/logout', function(data) {
+	  		if (data == 'success') {
+	    	home();
+	  	} else {
+	    	alert(data);
+	  	}	
+	});
+  });	
 });

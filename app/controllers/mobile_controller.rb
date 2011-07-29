@@ -74,7 +74,13 @@ class MobileController < MainController
     unless session[:profileId].nil?
       @profile = User.find(session[:profileId])
     end
-    render :partial => "/layouts/mobile_header"
+    render :partial => '/layouts/mobile_header'
+  end
+  def loginform
+  	render :partial => '/mobile/login'
+  end
+  def login
+  
   end
  
 end

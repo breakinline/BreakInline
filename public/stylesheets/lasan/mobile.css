@@ -284,3 +284,29 @@ input {
 #cartTable th {
 	background-color: #eee;
 }
+
+/* login */
+
+#loginContainer {
+	float:left;
+	clear:left;
+}
+
+#loginContainer label {
+	float:left;
+	clear:left;
+	margin:5px;
+	width:100px;
+}
+
+#loginContainer input {
+	float:left;
+	margin:5px;
+}
+
+#loginBtn {
+	float:left;
+	clear:left;
+	margin-left:120px;
+	margin-top:20px;
+}

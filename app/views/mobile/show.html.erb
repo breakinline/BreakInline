@@ -1,3 +1,6 @@
+<script language="Javascript">
+	var locationId = '<%=@location.id%>';
+</script>
 <div id="bodyContainer">
   <% @location.categories.each_with_index do |category, index| %>
   <% if index == @location.categories.size-1 %>

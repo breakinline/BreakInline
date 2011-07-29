@@ -5,7 +5,8 @@
 	<% if session[:profileId].nil? %>
     <li><a id="signIn">Sign in</a></li>
     <% else %>
-    <li>Welcome Back <%=@profile.first_name%></li>
+    <li>Welcome</li>
+    <li><a id="logout">logoff</a></li>
 	<% end %>
 	<% if @order.order_items.size() == 0 %>
     <li><a id="cart">cart (0)</a></li>

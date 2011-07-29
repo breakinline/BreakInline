@@ -51,4 +51,7 @@ Breakinline::Application.routes.draw do
   match 'mobile/deleteitem', :to => 'main#deleteItem'
   match 'mobile/refreshorder', :to => 'mobile#refreshOrder'
   match 'mobile/additem2order', :to => 'main#addItem2Order'
+  match 'mobile/loginform', :to => 'mobile#loginform'
+  match 'mobile/login', :to => 'main#login'
+  match 'mobile/logout', :to => 'main#logout'
 end
