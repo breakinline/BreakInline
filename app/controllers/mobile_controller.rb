@@ -2,7 +2,7 @@ RAD_PER_DEG = 0.017453293  #  PI/180
 RAD_MILES   = 3956              # radius of the earth in miles
 
 
-class MobileController < ApplicationController
+class MobileController < MainController
   layout 'mobile_layout'
   before_filter :require_ssl, :only => [:login]
   def show
@@ -60,8 +60,21 @@ class MobileController < ApplicationController
   	@category = Category.find(params[:id])
   	render :partial => '/mobile/category'
   end
+  def cart
+  	@order = getOrder()
+  	render :partial => '/mobile/cart'
+  end
   def menuItem
 	@menuItem = MenuItem.find(params[:id])
 	render :partial => '/mobile/menuItem'  
   end
+  def refreshOrder
+    @order = getOrder()
+    @location = Location.find(session[:locationId])
+    unless session[:profileId].nil?
+      @profile = User.find(session[:profileId])
+    end
+    render :partial => "/layouts/mobile_header"
+  end
+ 
 end

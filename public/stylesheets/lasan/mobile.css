@@ -33,6 +33,12 @@ div.error {
 	border-radius: 6px 6px 6px 6px;
 }
 
+#mobileHeader {
+	float:left;
+	clear:left;	
+	width:100%;
+}
+
 input {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -46,7 +52,7 @@ input {
 #headerMyAccount {
 	float:right;
 	list-style-type:none;
-	margin:0;
+	margin-bottom:10px;
 	padding-top:40px;
 	overflow:hidden;	
 }
@@ -142,7 +148,7 @@ input {
 }
 
 /* categories */
-#menuContainer {
+#bodyContainer {
 	float:left;
 	clear:left;
 }
@@ -159,7 +165,7 @@ input {
 	border-left:1px solid gray;
 	border-top:1px solid gray;
 	border-right:1px solid gray;
-	width:320px;
+	width:310px;
 	background: #eeeeee;
 }
 
@@ -171,7 +177,7 @@ input {
 #navCatBack {
 	float:left;
 	clear:left;
-	width:320px;
+	width:310px;
 	padding: 5px;
 	line-height:1.4;
 	text-align:center;
@@ -190,7 +196,7 @@ input {
 .menuItem {
 	float:left;
 	clear:left;
-	width:320px;
+	width:310px;
 	padding: 5px;
 	line-height:1.4;
 	cursor:pointer;
@@ -244,4 +250,37 @@ input {
 	float:right;
 	clear:left;
 	margin-top:20px;
+}
+
+#commentContainer {
+	float:left;
+	clear:left;
+	margin-top:10px;
+}
+
+/* cart */
+
+#continueShopping {
+	float:left;
+	clear:left;
+}
+
+#checkout {
+	float:right;
+}
+
+#cartTable {
+	margin-bottom:10px;
+	float:left;
+	clear:left;
+	width:310px;
+}
+
+.choiceOptionStyle {
+	font-style:italic;
+	font-size: 12px;
+}
+
+#cartTable th {
+	background-color: #eee;
 }

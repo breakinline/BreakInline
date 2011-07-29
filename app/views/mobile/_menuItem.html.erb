@@ -7,31 +7,28 @@
 	<div id="menuItemDesc"><%=@menuItem.description%></div>
 	<div id="menuItemPrice"><%=number_to_currency(@menuItem.price)%></div>
 	<input type="hidden" id="menuItemId" value="<%=@menuItem.id%>"/>
-	<%
-		optionidx = 1
-		choiceidx = 1
-	%>
 	<div id="groupContainer">
   		<% @menuItem.choice_option_groups.each do |choiceOptionGroup| %>
   		<label for="choiceOption"><%=choiceOptionGroup.name%></label>
   		<div class="choiceOption">
   			<% if choiceOptionGroup.item_type == 2 %> 
-  			<select class="choice<%=choiceidx%>">
+  			<select class="choice">
   			<% choiceOptionGroup.choice_options.each do |choiceOption| %>
-				<option><%=choiceOption.name%></option>		
+				<option value="<%=choiceOption.id%>"><%=choiceOption.name%></option>		
   			<% end %>
   			</select>
-  			<% choiceidx = choiceidx + 1 %>
   			<% else %>
   			<% choiceOptionGroup.choice_options.each do |choiceOption| %>
-				<input type="radio" name="option<%=optionidx%>" value="<%=choiceOption.id%>"/>
+				<input type="radio" class="option" value="<%=choiceOption.id%>"/>
 				<span class="optionName"><%=choiceOption.name%></span>
   			<% end %>
-  			<% optionidx = optionidx + 1 %>
   			<% end %>
   		</div>
   		<% end %>
 	</div>	
+	<div id="commentContainer">
+		<textarea class="comment" rows="5" cols="38">Type your comment here.</textarea>
+	</div>
 	<div id="add2cart" class="button">
 		<span class="button-text">Add</span>
 	</div>		  

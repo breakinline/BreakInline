@@ -1,0 +1,36 @@
+<table id="cartTable">
+	<tr>
+		<th>Qty</th>
+		<th>Item</th>
+		<th>Price</th>
+		<th>&nbsp;</th>
+	</tr>
+	<% if @order.order_item_not_choice_option.size() == 0 %>
+	<tr><td colspan="4">No items ordered yet</td></tr>
+	<% else %>
+	<% @order.order_item_not_choice_option.each do |orderItem| %>
+	<tr>
+		<td><%=orderItem.quantity%></td>
+		<td><%=orderItem.name%></td>
+		<td><%=number_to_currency(orderItem.price)%></td>
+		<input type="hidden" class="orderItemId" value="<%=orderItem.id%>"/>
+		<td><a class="cartDelete">x</a></td>
+	</tr>
+	<% orderItem.choice_options(@order.order_items).each do |choiceOption| %>	
+	<tr class="choiceOptionStyle">
+		<td></td>
+		<td><%=choiceOption.name%></td>
+		<td><%=number_to_currency(choiceOption.price)%></td>
+		<td></td>
+	</tr>
+	<% end %>	
+	<% end %>
+	<% end %>
+</table>
+	
+<div id="continueShopping" class="button" onclick="window.location='/mobile/locations/<%=session[:locationId]%>';">
+	<span class="button-text">Continue</span>
+</div>	
+<div id="checkout" class="button">
+	<span class="button-text">Place Order</span>
+</div>	

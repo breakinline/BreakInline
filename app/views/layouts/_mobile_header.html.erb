@@ -2,11 +2,16 @@
 	<img src="/images/<%=session[:context]%>/mobile_logo.png" border="0"/>
 </a>
 <ul id="headerMyAccount">
-	  <% if session[:profileId].nil? %>
+	<% if session[:profileId].nil? %>
     <li><a id="signIn">Sign in</a></li>
     <% else %>
     <li>Welcome Back <%=@profile.first_name%></li>
 	<% end %>
+	<% if @order.order_items.size() == 0 %>
+    <li><a id="cart">cart (0)</a></li>
+    <% else %>
+    <li><a id="cart">cart (<%=@order.order_item_not_choice_option.size()%>)</a></li>      
+    <% end %>
 </ul>
 
 

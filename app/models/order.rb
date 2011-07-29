@@ -20,4 +20,13 @@ class Order < ActiveRecord::Base
     end
     return map
   end
+  def order_item_not_choice_option
+  	array = Array.new
+  	self.order_items.each do |orderItem|
+  		if orderItem.item_type == OrderItem::MENU_ITEM
+  			array[array.count] = orderItem
+  		end
+  	end
+  	return array
+  end
 end
