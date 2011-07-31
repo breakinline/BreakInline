@@ -1,7 +1,7 @@
 body {
     background: #fff;
     font-family: Arial;
-    width:320px;
+    width:290px;
     color:#545454;
 }
 a {
@@ -138,7 +138,7 @@ input {
 
 #map_canvas {
 	float:left;
-	width:300px;
+	width:290px;
 	height:290px;
 }
 
@@ -165,7 +165,7 @@ input {
 	border-left:1px solid gray;
 	border-top:1px solid gray;
 	border-right:1px solid gray;
-	width:310px;
+	width:290px;
 	background: #eeeeee;
 }
 
@@ -177,7 +177,7 @@ input {
 #navCatBack {
 	float:left;
 	clear:left;
-	width:310px;
+	width:290px;
 	padding: 5px;
 	line-height:1.4;
 	text-align:center;
@@ -196,7 +196,7 @@ input {
 .menuItem {
 	float:left;
 	clear:left;
-	width:310px;
+	width:290px;
 	padding: 5px;
 	line-height:1.4;
 	cursor:pointer;
@@ -273,7 +273,7 @@ input {
 	margin-bottom:10px;
 	float:left;
 	clear:left;
-	width:310px;
+	width:290px;
 }
 
 .choiceOptionStyle {

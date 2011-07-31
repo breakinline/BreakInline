@@ -46,6 +46,7 @@ class MobileController < MainController
   end
   def company
     @company = Company.find(params[:id]) 
+    @order = getOrder()
     session[:context] = @company.context  
     session[:companyId] = params[:id] 
     unless session[:profileId].nil?
@@ -80,7 +81,7 @@ class MobileController < MainController
   	render :partial => '/mobile/login'
   end
   def login
-  
+  	
   end
  
 end
