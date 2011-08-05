@@ -92,7 +92,7 @@ class MainController < ApplicationController
       order2copy.order_items.each do |item|
         if item.item_type == OrderItem::MENU_ITEM
           orderItem = OrderItem.new
-          orderItem.order_id = order.id
+          orderItem.order_id = currentOrder.id
           orderItem.menu_item_id = item.menu_item_id
           orderItem.name = item.name
           orderItem.price = item.price
@@ -102,16 +102,14 @@ class MainController < ApplicationController
           orderItem.item_type = item.item_type
           orderItem.save  
           parentItemId = orderItem.id        
-          item.choice_options(sessionOrder.order_items).each do |choice_option|
+          item.choice_options(order2copy.order_items).each do |choice_option|
             orderItem = OrderItem.new
-            orderItem.order_id = order.id
-            orderItem.choice_option_id = item.choice_option_id
-            orderItem.name = item.name
-            orderItem.price = item.price
-            orderItem.quantity = item.quantity
-            orderItem.comment = item.comment
-            orderItem.item_for = item.item_for
-            orderItem.item_type = item.item_type
+            orderItem.order_id = currentOrder.id
+            orderItem.choice_option_id = choice_option.choice_option_id
+            orderItem.name = choice_option.name
+            orderItem.price = choice_option.price
+            orderItem.quantity = choice_option.quantity
+            orderItem.item_type = choice_option.item_type
             orderItem.parent_order_item_id = parentItemId
             orderItem.save  
           end
@@ -140,7 +138,7 @@ class MainController < ApplicationController
       :first_name => profile.first_name,
       :last_name => profile.last_name,
       :type => profile.card_type,
-      :verification_value => profile.cvv)
+      :verification_value => params[:cvv])
 
     gateway = ActiveMerchant::Billing::AuthorizeNetGateway.new(
       :login => location.merchant_id,

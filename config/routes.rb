@@ -54,5 +54,5 @@ Breakinline::Application.routes.draw do
   match 'mobile/loginform', :to => 'mobile#loginform'
   match 'mobile/login', :to => 'main#login'
   match 'mobile/logout', :to => 'main#logout'
-  match 'mobile/prevorders', :to => 'main#refreshprevorders'
+  match 'mobile/prevorders', :to => 'main#refreshPrevOrders'
 end

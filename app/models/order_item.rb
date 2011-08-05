@@ -64,6 +64,7 @@ class OrderItem < ActiveRecord::Base
       if idx > 0
         outStr = outStr + '|'
       end
+      logger.debug('choice_option: ' + orderItem.id.to_s)
       outStr = outStr + orderItem.choice_option.id.to_s
       idx = idx + 1
     end    

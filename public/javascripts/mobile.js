@@ -97,7 +97,7 @@ jQuery(document).ready(function() {
 		});
     });	
     
-    jQuery('prev').live('click', function() {
+    jQuery('#prev').live('click', function() {
     	jQuery('#bodyContainer').load('/mobile/prevorders');
     });
 });
