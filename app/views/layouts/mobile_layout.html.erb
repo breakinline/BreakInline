@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Breakinline Mobile</title>
-
-	 <!-- Sencha Touch CSS -->
-	 <link rel="stylesheet" href="/mobileresources/css/sencha-touch.css" type="text/css">
-
-	 <!-- Custom CSS -->
-	 <link rel="stylesheet" href="/stylesheets/<%=session[:context]%>/mobile.css" type="text/css">
-
-	 <!-- Google Maps JS -->
-	 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-
-	 <!-- Sencha Touch JS -->
-	 <script type="text/javascript" src="/javascripts/mobile/sencha-touch.js"></script>
-
-	 <!-- Application JS -->
-	 <script type="text/javascript" src="/javascripts/mobile/index.js"></script>
-
-</head>
-<body><%= yield%></body>
+  <head>
+    <title><%= title %></title>
+    <%= csrf_meta_tag %>
+	<%= stylesheet_link_tag session[:context] + '/overcast/jquery-ui-1.8.11.custom', :media => 'screen' %>
+	<%= stylesheet_link_tag session[:context] + '/mobile', :media => 'screen' %>
+	<%= javascript_include_tag 'jquery-1.5.1.min.js' %>
+	<%= javascript_include_tag 'mobile.js' %>
+	
+  </head>
+  <body>
+	<div id="cook_header">
+	  <%= render 'layouts/mobile_header'%>
+	</div>
+	<%=yield%>
+  </body>
 </html>
